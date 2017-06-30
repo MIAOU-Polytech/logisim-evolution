@@ -184,7 +184,7 @@ public class RamHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 				for (int i = 0; i < Ram.GetNrOfByteEnables(attrs); i++) {
 					Contents.add("   Mem" + Integer.toString(i)
 							+ " : PROCESS( Clock , s_we_" + Integer.toString(i)
-							+ ", s_DataInReg, s_Address_reg, s_RAM_enable)");
+							+ ", DataIn, Address, s_RAM_enable)");
 					Contents.add("   BEGIN");
 					Contents.add("      IF (Clock'event AND (Clock = '1')) THEN");
 					Contents.add("         IF (s_RAM_enable = '1') THEN");
@@ -198,12 +198,12 @@ public class RamHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 							: "s_byte_mem_" + Integer.toString(i) + "_contents";
 					Contents.add("               "
 							+ Memname
-							+ "(to_integer(unsigned(s_Address_reg))) <= s_DataInReg("
+							+ "(to_integer(unsigned(Address))) <= DataIn("
 							+ endIndex + " DOWNTO " + startIndex + ");");
 					Contents.add("            END IF;");
 					Contents.add("            s_ram_data_out(" + endIndex
 							+ " DOWNTO " + startIndex + ") <= " + Memname
-							+ "(to_integer(unsigned(s_Address_reg)));");
+							+ "(to_integer(unsigned(Address)));");
 					Contents.add("         END IF;");
 					Contents.add("      END IF;");
 					Contents.add("   END PROCESS Mem" + Integer.toString(i)
@@ -211,20 +211,21 @@ public class RamHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 					Contents.add("");
 				}
 			} else {
-				Contents.add("   Mem : PROCESS( Clock , s_we, s_DataInReg, s_Address_reg, s_RAM_enable)");
+				Contents.add("   Mem : PROCESS( Clock , WE, DataIn, Address, s_RAM_enable)");
 				Contents.add("   BEGIN");
 				Contents.add("      IF (Clock'event AND (Clock = '1')) THEN");
 				Contents.add("         IF (s_RAM_enable = '1') THEN");
-				Contents.add("            IF (s_we = '1') THEN");
-				Contents.add("               s_mem_contents(to_integer(unsigned(s_Address_reg))) <= s_DataInReg;");
+				Contents.add("            IF (WE = '1') THEN");
+				Contents.add("               s_mem_contents(to_integer(unsigned(Address))) <= DataIn;");
 				Contents.add("            END IF;");
-				Contents.add("            s_ram_data_out <= s_mem_contents(to_integer(unsigned(s_Address_reg)));");
+				Contents.add("            DataOut <= s_mem_contents(to_integer(unsigned(Address)));");
 				Contents.add("         END IF;");
 				Contents.add("      END IF;");
 				Contents.add("   END PROCESS Mem;");
 				Contents.add("");
 			}
-			Contents.addAll(MakeRemarkBlock(
+
+/*			Contents.addAll(MakeRemarkBlock(
 					"Here the output register is defined", 3, HDLType));
 			if (byteEnables) {
 				for (int i = 0; i < Ram.GetNrOfByteEnables(attrs); i++) {
@@ -249,16 +250,17 @@ public class RamHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 					Contents.add("");
 				}
 			} else {
-				Contents.add("   Res : PROCESS( Clock , s_oe, s_ram_data_out)");
+				Contents.add("   Res : PROCESS( Clock , OE, s_ram_data_out)");
 				Contents.add("   BEGIN");
 				Contents.add("      IF (Clock'event AND (Clock = '1')) THEN");
-				Contents.add("         IF (s_oe = '1') THEN");
+				Contents.add("         IF (OE = '1') THEN");
 				Contents.add("           DataOut <= s_ram_data_out;");
 				Contents.add("         END IF;");
 				Contents.add("      END IF;");
 				Contents.add("   END PROCESS Res;");
 				Contents.add("");
 			}
+*/
 		}
 		return Contents;
 	}
