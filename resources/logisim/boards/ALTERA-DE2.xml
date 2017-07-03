@@ -56,6 +56,7 @@
 <LED ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_AE13" Height="14" LocationX="177" LocationY="339" Width="7"/>
 <LED ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_AE12" Height="14" LocationX="159" LocationY="339" Width="7"/>
 <LED ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_AD12" Height="14" LocationX="141" LocationY="339" Width="7"/>
+<LED ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_Y12" Height="11" LocationX="247" LocationY="305" Width="6"/>
 <SevenSegment ActivityLevel="Active low" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPin_0="PIN_AF10" FPGAPin_1="PIN_AB12" FPGAPin_2="PIN_AC12" FPGAPin_3="PIN_AD11" FPGAPin_4="PIN_AE11" FPGAPin_5="PIN_V14" FPGAPin_6="PIN_V13" FPGAPin_7="PIN_C8" Height="31" LocationX="324" LocationY="295" NrOfPins="8" Width="17"/>
 <SevenSegment ActivityLevel="Active low" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPin_0="PIN_V20" FPGAPin_1="PIN_V21" FPGAPin_2="PIN_W21" FPGAPin_3="PIN_Y22" FPGAPin_4="PIN_AA24" FPGAPin_5="PIN_AA23" FPGAPin_6="PIN_AB24" FPGAPin_7="PIN_F10" Height="31" LocationX="304" LocationY="295" NrOfPins="8" Width="17"/>
 
@@ -70,46 +71,92 @@
 <SevenSegment ActivityLevel="Active low" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPin_0="PIN_R2" FPGAPin_1="PIN_P4" FPGAPin_2="PIN_P3" FPGAPin_3="PIN_M2" FPGAPin_4="PIN_M3" FPGAPin_5="PIN_M5" FPGAPin_6="PIN_M4" FPGAPin_7="PIN_H11" Height="31" LocationX="155" LocationY="295" NrOfPins="8" Width="17"/>
 
 <SevenSegment ActivityLevel="Active low" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPin_0="PIN_L3" FPGAPin_1="PIN_L2" FPGAPin_2="PIN_L9" FPGAPin_3="PIN_L6" FPGAPin_4="PIN_L7" FPGAPin_5="PIN_P9" FPGAPin_6="PIN_N9" FPGAPin_7="PIN_H12" Height="31" LocationX="135" LocationY="295" NrOfPins="8" Width="17"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="97" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="97" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="103" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="103" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="109" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="109" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="116" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="116" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="122" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="122" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="129" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="129" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="135" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="135" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="141" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="141" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="148" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="148" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="154" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="154" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="161" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="161" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="167" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="167" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="173" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="173" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="180" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="180" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="186" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="186" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="193" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="193" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="199" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="199" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="205" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="205" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="211" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="211" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="558" LocationY="218" Width="3"/>
-<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="218" Width="3"/>
+
+<!-- GPIO 0 -->
+
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_D25" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="97" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J22" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="97" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_E26" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="103" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_E25" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="103" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_F24" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="109" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_F23" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="109" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J21" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="116" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J20" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="116" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_F25" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="122" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_F26" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="122" Width="3"/>
+<!--<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="129" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="129" Width="3"/>-->
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_N18" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="135" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_P18" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="135" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_G23" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="141" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_G24" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="141" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K22" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="148" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_G25" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="148" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_H23" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="154" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_H24" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="154" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J23" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="161" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J24" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="161" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_H25" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="167" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_H26" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="167" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_H19" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="173" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K18" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="173" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K19" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="180" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K21" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="180" Width="3"/>
+<!--<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="186" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="186" Width="3"/>-->
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K23" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="193" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K24" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="193" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L21" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="199" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L20" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="199" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J25" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="205" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_J26" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="205" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L23" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="211" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L24" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="211" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L25" FPGAPinPullBehavior="Float" Height="3" LocationX="558" LocationY="218" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_L19" FPGAPinPullBehavior="Float" Height="3" LocationX="563" LocationY="218" Width="3"/>
+
+<!-- GPIO 1 -->
+
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K25" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="97" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_K26" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="97" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M22" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="103" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M23" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="103" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M19" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="109" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M20" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="109" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_N20" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="116" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M21" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="116" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M24" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="122" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_M25" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="122" Width="3"/>
+<!--<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="556" LocationY="129" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="562" LocationY="129" Width="3"/>-->
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_N24" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="135" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_P24" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="135" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_R25" FPGAPinPullBehavior="Float" Height="3" LocationX="607" LocationY="141" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_R24" FPGAPinPullBehavior="Float" Height="3" LocationX="613" LocationY="141" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_R20" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="148" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T22" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="148" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T23" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="154" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T24" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="154" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T25" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="161" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T18" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="161" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T21" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="167" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T20" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="167" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_U26" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="173" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_U25" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="173" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_U23" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="180" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_U24" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="180" Width="3"/>
+<!--<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="557" LocationY="186" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="A" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="186" Width="3"/>-->
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_R19" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="193" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_T19" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="193" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_U20" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="199" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_21" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="199" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_V26" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="205" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_V25" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="205" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_V24" FPGAPinPullBehavior="Float" Height="3" LocationX="608" LocationY="211" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_V23" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="211" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_W25" FPGAPinPullBehavior="Float" Height="3" LocationX="609" LocationY="218" Width="3"/>
+<Pin ActivityLevel="Active high" FPGAPinDriveStrength="Default" FPGAPinIOStandard="Default" FPGAPinName="PIN_W23" FPGAPinPullBehavior="Float" Height="3" LocationX="614" LocationY="218" Width="3"/>
 </IOComponents>
 <BoardPicture>
 <!--This section hold the board picture-->
