@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Logisim Evolution
+Comment=Digital logic designer and simulator
+Exec=logisim-evolution
+Icon=logisim-icon-128
+Terminal=false
+Type=Application
+Categories=Education;Science;ComputerScience;Java;

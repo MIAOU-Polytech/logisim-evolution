@@ -1,0 +1,19 @@
+Source: logisim-evolution
+Section: electronics
+Priority: optional
+Maintainer: piernov <piernov@piernov.org>
+Build-Depends: debhelper (>= 9), javahelper (>= 0.25)
+Build-Depends-Indep:
+ default-jdk,
+ ant
+Standards-Version: 3.9.8
+Homepage: https://github.com/MIAOU-Polytech/logisim-evolution
+Vcs-Git: https://github.com/MIAOU-Polytech/logisim-evolution.git
+Vcs-Browser: https://github.com/MIAOU-Polytech/logisim-evolution
+
+Package: logisim-evolution
+Architecture: all
+Depends: ${java:Depends}, ${misc:Depends}
+Recommends: ${java:Recommends}
+Description: Digital logic designer and simulator
+ Logisim is an educational tool for designing and simulating digital logic circuits.

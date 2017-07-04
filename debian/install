@@ -1,0 +1,8 @@
+debian/logisim-evolution.desktop                          usr/share/applications/
+logisim-evolution.jar                                     usr/share/logisim-evolution/
+resources/logisim/img/logisim-icon-128.png      usr/share/icons/hicolor/128x128/apps/
+resources/logisim/img/logisim-icon-20.png       usr/share/icons/hicolor/20x20/apps/
+resources/logisim/img/logisim-icon-24.png       usr/share/icons/hicolor/24x24/apps/
+resources/logisim/img/logisim-icon-48.png       usr/share/icons/hicolor/48x48/apps/
+resources/logisim/img/logisim-icon-64.png       usr/share/icons/hicolor/64x64/apps/
+
