@@ -1,3 +1,10 @@
+logisim-evolution (2.13.22-polytech2-1) xenial; urgency=low
+
+  * Mapping LED/BUTTON/SWITCH/7SEG completed, to complete : GPIO / LEDG8
+  * Complete ALTERA DE2 Mapping
+
+ -- Nassim Bounouas <NassimBounouas@users.noreply.github.com>  Wed, 05 Jul 2017 13:07:06 +0200
+
 logisim-evolution (2.13.22-polytech1-1) xenial; urgency=low
 
   * Initial release
