@@ -256,7 +256,7 @@ public class MenuSimulate extends Menu {
 				}
 				setText(StringUtil.format(Strings.get("simulateTickFreqItem"),
 						hzStr));
-			} else {
+			} else if (f < 1000000) {
 				String kHzStr;
 				double kf = Math.round(f / 100) / 10.0;
 				if (kf == Math.round(kf)) {
@@ -266,6 +266,16 @@ public class MenuSimulate extends Menu {
 				}
 				setText(StringUtil.format(Strings.get("simulateTickKFreqItem"),
 						kHzStr));
+			} else {
+				String mHzStr;
+				double mf = Math.round(f / 100000) / 10.0;
+				if (mf == Math.round(mf)) {
+					mHzStr = "" + (int) mf;
+				} else {
+					mHzStr = "" + mf;
+				}
+				setText(StringUtil.format(Strings.get("simulateTickMFreqItem"),
+						mHzStr));
 			}
 		}
 	}
@@ -283,7 +293,7 @@ public class MenuSimulate extends Menu {
 				}
 				result.add(StringUtil.format(
 						Strings.get("simulateTickFreqItem"), hzStr));
-			} else {
+			} else if (SupportedTickFrequencies[i] < 1000000) {
 				String kHzStr;
 				double kf = Math.round(SupportedTickFrequencies[i] / 100) / 10.0;
 				if (kf == Math.round(kf)) {
@@ -293,13 +303,23 @@ public class MenuSimulate extends Menu {
 				}
 				result.add(StringUtil.format(
 						Strings.get("simulateTickKFreqItem"), kHzStr));
+			} else {
+				String mHzStr;
+				double mf = Math.round(SupportedTickFrequencies[i] / 100000) / 10.0;
+				if (mf == Math.round(mf)) {
+					mHzStr = "" + (int) mf;
+				} else {
+					mHzStr = "" + mf;
+				}
+				 result.add(StringUtil.format(
+						Strings.get("simulateTickMFreqItem"), mHzStr));
 			}
 
 		}
 		return result;
 	}
 
-	public static final Double[] SupportedTickFrequencies = { 4096.0, 2048.0,
+	public static final Double[] SupportedTickFrequencies = { 1000000.0, 4096.0, 2048.0,
 			1024.0, 512.0, 256.0, 128.0, 64.0, 32.0, 16.0, 8.0, 4.0, 2.0, 1.0,
 			0.5, 0.25 };
 	private LogisimMenuBar menubar;
