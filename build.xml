@@ -4,15 +4,15 @@
     Original code by Adrien Lescourt - 10.2011
 -->
 
-<project name="logisim-evolution">
+<project name="logisim-evolution" default="jar">
 
-    <target name="cleanall" depends="clean">
+    <target name="clean" depends="cleanjar">
         <delete dir="bin/com/bfh/"/>
         <delete dir="bin/com/cburch/"/>
         <delete dir="bin/com/hepia/"/>
     </target>
 
-    <target name="clean">
+    <target name="cleanjar">
         <delete file="logisim-evolution.jar"/>
         <delete file="logisim-evolution_src.jar"/>
     </target>
