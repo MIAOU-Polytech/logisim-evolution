@@ -1,3 +1,14 @@
+logisim-evolution (2.13.22-polytech3-1) xenial; urgency=low
+
+  [ piernov ]
+  * Add -analyze to logisim-evolution.desktop
+  * Add 1MHz clock
+
+  [ Nassim Bounouas ]
+  * Fix Pin assignment for GPIO_1[29]
+
+ -- piernov <piernov@piernov.org>  Fri, 21 Jul 2017 22:53:49 +0200
+
 logisim-evolution (2.13.22-polytech2-1) xenial; urgency=low
 
   * Mapping LED/BUTTON/SWITCH/7SEG completed, to complete : GPIO / LEDG8
