@@ -124,7 +124,7 @@ public class WindowMenu extends JMenu {
 		myListener.localeChanged();
 	}
 
-	void addMenuItem(Object source, WindowMenuItem item, boolean persistent) {
+    void addMenuItem(Object source, WindowMenuItem item, boolean persistent) {
 		if (persistent)
 			persistentItems.add(item);
 		else

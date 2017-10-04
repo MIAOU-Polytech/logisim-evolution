@@ -38,7 +38,6 @@ import java.awt.event.MouseEvent;
 import java.util.Collection;
 
 import javax.swing.JMenuItem;
-//import javax.swing.JComponent;
 import javax.swing.JPopupMenu;
 
 import com.cburch.logisim.circuit.Circuit;

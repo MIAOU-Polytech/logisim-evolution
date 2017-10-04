@@ -30,6 +30,7 @@
 
 package com.cburch.logisim.gui.main;
 
+
 import javax.swing.JOptionPane;
 
 import com.cburch.logisim.circuit.CircuitAttributes;

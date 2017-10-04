@@ -103,6 +103,7 @@ class OpenRecent extends JMenu implements PropertyChangeListener {
 				AppPreferences.RECENT_PROJECTS, this);
 		renewItems();
 	}
+	
 
 	void localeChanged() {
 		setText(Strings.get("fileOpenRecentItem"));

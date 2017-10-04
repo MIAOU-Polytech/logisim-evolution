@@ -368,6 +368,7 @@ class ExpressionView extends JPanel {
 					int stopX = x
 							+ fm.stringWidth(line.substring(0, nd.stopIndex));
 					g.drawLine(startX, notY, stopX, notY);
+					g.drawLine(startX, notY-1, stopX, notY-1);
 				}
 			}
 		}

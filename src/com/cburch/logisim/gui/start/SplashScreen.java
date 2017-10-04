@@ -46,6 +46,7 @@ import javax.swing.SwingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class SplashScreen extends JWindow implements ActionListener {
 
 	private static class Marker {

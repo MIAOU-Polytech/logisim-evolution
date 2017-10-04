@@ -37,6 +37,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JRootPane;
 
+
 class DefaultRegistry {
 	private class MyListener implements FocusListener {
 		JButton defaultButton;
@@ -50,7 +51,7 @@ class DefaultRegistry {
 		}
 
 		public void focusLost(FocusEvent event) {
-			JButton currentDefault = rootPane.getDefaultButton();
+			JButton currentDefault = (JButton)rootPane.getDefaultButton();
 			if (currentDefault == defaultButton)
 				rootPane.setDefaultButton(null);
 		}

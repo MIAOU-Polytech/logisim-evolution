@@ -30,6 +30,11 @@
 
 package com.cburch.logisim.prefs;
 
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,8 +47,11 @@ import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
+import com.bfh.logisim.hdlgenerator.HDLGeneratorFactory;
 import com.cburch.logisim.Main;
 import com.cburch.logisim.circuit.RadixOption;
 import com.cburch.logisim.data.Direction;
@@ -364,6 +372,71 @@ public class AppPreferences {
 		}
 	}
 
+	public static void setScaledFonts(Component[] comp) {
+		for (int x = 0 ; x < comp.length; x++) {
+			if (comp[x] instanceof Container)
+				setScaledFonts(((Container) comp[x]).getComponents());
+			try{comp[x].setFont(getScaledFont(comp[x].getFont()));
+			    comp[x].revalidate();
+			    comp[x].repaint();}
+			catch(Exception e){}
+		}
+	}
+	public static int getDownScaled(int value, float ExtScale) {
+		getPrefs();
+		float scale = ((float)((int)(SCALE_FACTOR.get()*10)))/(float)10.0;
+		scale *= ExtScale;
+		return (int)((float)value/scale);
+	}
+	
+	public static int getDownScaled(int value) {
+		getPrefs();
+		float scale = ((float)((int)(SCALE_FACTOR.get()*10)))/(float)10.0;
+		return (int)((float)value/scale);
+	}
+	
+	public static int getScaled(int value, float ExtScale) {
+		getPrefs();
+		float scale = ((float)((int)(SCALE_FACTOR.get()*10)))/(float)10.0;
+		scale *= ExtScale;
+		return (int)((float)value*scale);
+	}
+
+	public static int getScaled(int value) {
+		getPrefs();
+		float scale = ((float)((int)(SCALE_FACTOR.get()*10)))/(float)10.0;
+		return (int)((float)value*scale);
+	}
+
+	public static float getScaled(float value) {
+		getPrefs();
+		float scale = ((float)((int)(SCALE_FACTOR.get()*10)))/(float)10.0;
+		return value*scale;
+	}
+	
+	public static double getScaled(double value) {
+		getPrefs();
+		double scale = ((double)((int)(SCALE_FACTOR.get()*10)))/(double)10.0;
+		return value*scale;
+	}
+	
+	public static Font getScaledFont(Font myfont) {
+		if (myfont != null)
+			return myfont.deriveFont(getScaled((float)FontSize));
+		else
+			return null;
+	}
+	
+	public static ImageIcon getScaledImageIcon(ImageIcon icon) {
+		Image IcImage = icon.getImage();
+		return new ImageIcon(IcImage.getScaledInstance(getScaled(IconSize), getScaled(IconSize), Image.SCALE_SMOOTH));
+	}
+
+	public static ImageIcon getScaledImageIcon(ImageIcon icon,float scale) {
+		Image IcImage = icon.getImage();
+		return new ImageIcon(IcImage.getScaledInstance(getScaled(IconSize,scale), getScaled(IconSize,scale), Image.SCALE_SMOOTH));
+	}
+
 	public static void updateRecentFile(File file) {
 		recentProjects.updateRecent(file);
 	}
@@ -377,6 +450,10 @@ public class AppPreferences {
 			AppPreferences.class);
 
 	// Template preferences
+	public static final int IconSize = 16;
+	public static final int FontSize = 14;
+	public static final int IconBorder = 2;
+	public static final int BoxSize = IconSize+2*IconBorder;
 	public static final int TEMPLATE_UNKNOWN = -1;
 	public static final int TEMPLATE_EMPTY = 0;
 	public static final int TEMPLATE_PLAIN = 1;
@@ -405,6 +482,23 @@ public class AppPreferences {
 	public static final PrefMonitor<String> LOCALE = create(new LocalePreference());
 	public static final PrefMonitor<Boolean> ACCENTS_REPLACE = create(new PrefMonitorBoolean(
 			"accentsReplace", false));
+	
+	// FPGA Commander Preferences
+	public static final PrefMonitor<String> FPGA_Workspace=create(new PrefMonitorString(
+			"FPGAWorkspace", System.getProperty("user.home")));
+	public static final PrefMonitor<String> HDL_Type = create(new PrefMonitorStringOpts(
+			"afterAdd", new String[] { HDLGeneratorFactory.VHDL, HDLGeneratorFactory.VERILOG },
+			HDLGeneratorFactory.VHDL));
+	public static final PrefMonitor<Boolean> DownloadToBoard=create(new PrefMonitorBoolean(
+			"DownloadToBoard",true));
+	public static final PrefMonitor<String> SelectedBoard=create(new PrefMonitorString(
+			"SelectedBoard",null));
+	
+	public static final String External_Boards = "ExternalBoards";
+	public static final FPGABoards Boards = new FPGABoards();
+
+
+	
 	// Window preferences
 	public static final String TOOLBAR_HIDDEN = "hidden";
 	public static final String TOOLBAR_DOWN_MIDDLE = "downMiddle";
@@ -415,6 +509,9 @@ public class AppPreferences {
 					Direction.SOUTH.toString(), Direction.EAST.toString(),
 					Direction.WEST.toString(), TOOLBAR_DOWN_MIDDLE,
 					TOOLBAR_HIDDEN }, Direction.NORTH.toString()));
+	public static final PrefMonitor<String> LookAndFeel = create(new PrefMonitorString(
+			"LookAndFeel",UIManager.getCrossPlatformLookAndFeelClassName()));
+	
 	// Layout preferences
 	public static final String ADD_AFTER_UNCHANGED = "unchanged";
 	public static final String ADD_AFTER_EDIT = "edit";
@@ -430,6 +527,10 @@ public class AppPreferences {
 			"showGhosts", true));
 	public static final PrefMonitor<Boolean> NAMED_CIRCUIT_BOXES = create(new PrefMonitorBoolean(
 			"namedBoxes", true));
+	public static final PrefMonitor<Double> SCALE_FACTOR = create(new PrefMonitorDouble(
+			"Scale", (Toolkit.getDefaultToolkit().getScreenSize().getHeight()/1000) < 1.0 ? 1.0 :
+				Toolkit.getDefaultToolkit().getScreenSize().getHeight()/1000));
+	
 	public static final PrefMonitor<String> ADD_AFTER = create(new PrefMonitorStringOpts(
 			"afterAdd", new String[] { ADD_AFTER_EDIT, ADD_AFTER_UNCHANGED },
 			ADD_AFTER_EDIT));
@@ -449,6 +550,8 @@ public class AppPreferences {
 		POKE_WIRE_RADIX2 = create(new PrefMonitorStringOpts("pokeRadix2",
 				radixStrings, RadixOption.RADIX_10_SIGNED.getSaveString()));
 	}
+	public static final PrefMonitor<Boolean> Memory_Startup_Unknown = create(new PrefMonitorBoolean(
+			"MemStartUnknown", false));
 
 	// Experimental preferences
 	public static final String ACCEL_DEFAULT = "default";
@@ -469,6 +572,12 @@ public class AppPreferences {
 
 	public static final PrefMonitor<Boolean> QUESTA_VALIDATION = create(new PrefMonitorBoolean(
 			"questaValidation", false));
+	public static final PrefMonitor<String> QuartusToolPath=create(new PrefMonitorString(
+			"QuartusToolPath",""));
+	public static final PrefMonitor<String> ISEToolPath=create(new PrefMonitorString(
+			"ISEToolPath",""));
+	public static final PrefMonitor<String> VivadoToolPath=create(new PrefMonitorString(
+			"VivadoToolPath",""));
 
 	// hidden window preferences - not part of the preferences dialog, changes
 	// to preference does not affect current windows, and the values are not
@@ -496,10 +605,10 @@ public class AppPreferences {
 			"windowState", JFrame.NORMAL));
 
 	public static final PrefMonitor<Integer> WINDOW_WIDTH = create(new PrefMonitorInt(
-			"windowWidth", 640));
+			"windowWidth", Toolkit.getDefaultToolkit().getScreenSize().width/2));
 
 	public static final PrefMonitor<Integer> WINDOW_HEIGHT = create(new PrefMonitorInt(
-			"windowHeight", 480));
+			"windowHeight", Toolkit.getDefaultToolkit().getScreenSize().height));
 
 	public static final PrefMonitor<String> WINDOW_LOCATION = create(new PrefMonitorString(
 			"windowLocation", "0,0"));

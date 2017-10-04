@@ -26,6 +26,7 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,7 +71,7 @@ public class ImageExporter extends javax.swing.JFrame implements ActionListener 
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jRadioBtn_single;
     private javax.swing.JRadioButton jRadioBtn_multiple;
-    private javax.swing.JButton jBtnDone;
+    private JButton jBtnDone;
     private JLabel picture;
     Image img_single;
     Image img_multiple;
@@ -94,7 +95,8 @@ public class ImageExporter extends javax.swing.JFrame implements ActionListener 
             createLeftPanel();
             cropImage();
         } else {  //error message 
-            JOptionPane.showMessageDialog(null, "The chronogram is empty. Can't save it as an image.");
+            JOptionPane.showMessageDialog(leftPanel, "The chronogram is empty. Can't save it as an image.",
+            		"",JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -132,7 +134,7 @@ public class ImageExporter extends javax.swing.JFrame implements ActionListener 
         radioBtnMorphPanel.add(jRadioBtn_multiple);
         jRadioBtn_single.addActionListener(this);
         jRadioBtn_multiple.addActionListener(this);
-        jBtnDone = new javax.swing.JButton();
+        jBtnDone = new JButton();
         jBtnDone.setText("Done");
         jBtnDone.setToolTipText("Save the image and close the dialog box");
         jBtnDone.addActionListener(this);

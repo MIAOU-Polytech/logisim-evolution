@@ -218,6 +218,7 @@ class BuildCircuitButton extends JButton {
 	private AnalyzerModel model;
 
 	BuildCircuitButton(JFrame parent, AnalyzerModel model) {
+		super();
 		this.parent = parent;
 		this.model = model;
 		addActionListener(myListener);

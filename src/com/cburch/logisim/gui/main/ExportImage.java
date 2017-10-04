@@ -204,7 +204,7 @@ class ExportImage {
 		JRadioButton formatJpg;
 		GridBagLayout gridbag;
 		GridBagConstraints gbc;
-		Dimension curScaleDim;
+		Dimension curJim;
 
 		@SuppressWarnings("rawtypes")
 		OptionsPanel(JList list) {
@@ -225,8 +225,8 @@ class ExportImage {
 			curScale = new JLabel("222%");
 			curScale.setHorizontalAlignment(SwingConstants.RIGHT);
 			curScale.setVerticalAlignment(SwingConstants.CENTER);
-			curScaleDim = new Dimension(curScale.getPreferredSize());
-			curScaleDim.height = Math.max(curScaleDim.height,
+			curJim = new Dimension(curScale.getPreferredSize());
+			curJim.height = Math.max(curJim.height,
 					slider.getPreferredSize().height);
 			stateChanged(null);
 
@@ -291,8 +291,8 @@ class ExportImage {
 		public void stateChanged(ChangeEvent e) {
 			double scale = getScale();
 			curScale.setText((int) Math.round(100.0 * scale) + "%");
-			if (curScaleDim != null)
-				curScale.setPreferredSize(curScaleDim);
+			if (curJim != null)
+				curScale.setPreferredSize(curJim);
 		}
 	}
 

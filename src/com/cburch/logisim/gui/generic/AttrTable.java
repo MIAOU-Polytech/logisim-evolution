@@ -65,6 +65,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 
 import com.bfh.logisim.hdlgenerator.HDLColorRenderer;
+import com.cburch.logisim.prefs.AppPreferences;
 import com.cburch.logisim.util.JDialogOk;
 import com.cburch.logisim.util.JInputComponent;
 import com.cburch.logisim.util.JInputDialog;
@@ -193,7 +194,7 @@ public class AttrTable extends JPanel implements LocaleListener {
 								Strings.get("attributeChangeInvalidTitle"),
 								JOptionPane.WARNING_MESSAGE);
 					}
-					editor = null; //new JLabel(row.getValue());
+					editor = null; 
 				} else if (editor instanceof JInputComponent) {
 					JInputComponent input = (JInputComponent) editor;
 					MyDialog dlog;
@@ -212,7 +213,7 @@ public class AttrTable extends JPanel implements LocaleListener {
 								Strings.get("attributeChangeInvalidTitle"),
 								JOptionPane.WARNING_MESSAGE);
 					}
-					editor = null; //new JLabel(row.getValue());
+					editor = null;
 				} else {
 					editor.addFocusListener(this);
 				}
@@ -487,12 +488,12 @@ public class AttrTable extends JPanel implements LocaleListener {
 		table = new JTable(tableModel);
 		table.setDefaultEditor(Object.class, editor);
 		table.setTableHeader(null);
-		table.setRowHeight(20);
+		table.setRowHeight(AppPreferences.getScaled(AppPreferences.BoxSize));
 
 
 		Font baseFont = title.getFont();
 		int titleSize = Math.round(baseFont.getSize() * 1.2f);
-		Font titleFont = baseFont.deriveFont((float) titleSize).deriveFont(
+		Font titleFont = baseFont.deriveFont(AppPreferences.getScaled((float)titleSize)).deriveFont(
 				Font.BOLD);
 		title.setFont(titleFont);
 		Color bgColor = new Color(240, 240, 240);

@@ -38,6 +38,8 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.Icon;
 
+import com.cburch.logisim.prefs.AppPreferences;
+
 public class BoardIcon implements Icon {
 	private Image image;
 	private int icon_width = 240;
@@ -52,11 +54,11 @@ public class BoardIcon implements Icon {
 	}
 
 	public int getIconHeight() {
-		return icon_height;
+		return AppPreferences.getScaled(icon_height);
 	}
 
 	public int getIconWidth() {
-		return icon_width;
+		return AppPreferences.getScaled(icon_width);
 	}
 
 	public void paintIcon(Component c, Graphics g, int x, int y) {

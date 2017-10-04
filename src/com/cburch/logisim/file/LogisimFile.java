@@ -75,7 +75,8 @@ public class LogisimFile extends Library implements LibraryEventSource,CircuitLi
 			String oldname = (String) event.getData();
 			String newname = event.getCircuit().getName();
 			if (NameIsInUse(newname,event.getCircuit())) {
-				JOptionPane.showMessageDialog(null, "\""+newname+"\": "+Strings.get("circuitNameExists"));
+				JOptionPane.showMessageDialog(null, "\""+newname+"\": "+Strings.get("circuitNameExists"),
+						"",JOptionPane.ERROR_MESSAGE);
 				event.getCircuit().getStaticAttributes().setValue(CircuitAttributes.NAME_ATTR, (String) oldname);;
 			}
 		}

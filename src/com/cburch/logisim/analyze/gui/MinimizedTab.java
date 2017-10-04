@@ -172,7 +172,7 @@ class MinimizedTab extends AnalyzerTab {
 		karnaughMap.addMouseListener(new TruthTableMouseListener());
 		setAsExpr.addActionListener(myListener);
 		formatChoice.addItemListener(myListener);
-
+		
 		JPanel buttons = new JPanel(new GridLayout(1, 1));
 		buttons.add(setAsExpr);
 
