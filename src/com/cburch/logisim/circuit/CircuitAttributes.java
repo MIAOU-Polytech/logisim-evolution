@@ -92,7 +92,8 @@ public class CircuitAttributes extends AbstractAttributeSet {
 				String OldName = e.getOldValue() == null ? "ThisShouldNotHappen" : (String) e.getOldValue();
 				if (!NewName.equals(OldName)) {
 					if (NewName.isEmpty()) {
-						JOptionPane.showMessageDialog(null, Strings.get("EmptyNameError"));
+						JOptionPane.showMessageDialog(null, Strings.get("EmptyNameError"),"",
+								JOptionPane.ERROR_MESSAGE);
 						e.getSource().setValue(NAME_ATTR, OldName);
 						source.fireEvent(CircuitEvent.ACTION_SET_NAME, OldName);
 						return;
@@ -103,7 +104,8 @@ public class CircuitAttributes extends AbstractAttributeSet {
 						return;
 					} else
 					if (CorrectLabel.IsKeyword(NewName,false)) {
-						JOptionPane.showMessageDialog(null, Strings.get("KeywordNameError"));
+						JOptionPane.showMessageDialog(null, Strings.get("KeywordNameError"),"",
+								JOptionPane.ERROR_MESSAGE);
 						e.getSource().setValue(NAME_ATTR, OldName);
 						source.fireEvent(CircuitEvent.ACTION_SET_NAME, OldName);
 						return;

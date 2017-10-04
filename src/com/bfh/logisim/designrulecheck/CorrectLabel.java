@@ -36,7 +36,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import com.bfh.logisim.fpgagui.FPGAReport;
-import com.bfh.logisim.settings.Settings;
+import com.bfh.logisim.hdlgenerator.HDLGeneratorFactory;
 
 public class CorrectLabel {
 	public static String getCorrectLabel(String Label) {
@@ -62,14 +62,14 @@ public class CorrectLabel {
 				return false;
 			}
 		}
-		if (HDLIdentifier.equals(Settings.VHDL)) {
+		if (HDLIdentifier.equals(HDLGeneratorFactory.VHDL)) {
 			if (VHDLKeywords.contains(Label.toLowerCase())) {
 				Reporter.AddFatalError(ErrorIdentifierString
 						+ " is a reserved VHDL keyword, please rename.");
 				return false;
 			}
 		} else {
-			if (HDLIdentifier.equals(Settings.VERILOG)) {
+			if (HDLIdentifier.equals(HDLGeneratorFactory.VERILOG)) {
 				if (VerilogKeywords.contains(Label)) {
 					Reporter.AddFatalError(ErrorIdentifierString
 							+ " is a reserved Verilog keyword, please rename.");
@@ -78,6 +78,34 @@ public class CorrectLabel {
 			}
 		}
 		return true;
+	}
+	
+	public static boolean IsCorrectLabel(String Label) {
+		if (Label.isEmpty())
+			return true;
+		for (int i = 0; i < Label.length(); i++) {
+			if (!Chars.contains(Label.toLowerCase().substring(i, i + 1))
+					&& !Numbers.contains(Label.substring(i, i + 1))) {
+				return false;
+			}
+		}
+		if (VHDLKeywords.contains(Label.toLowerCase())) 
+			return false;
+		if (VerilogKeywords.contains(Label)) 
+			return false;
+		return true;
+	}
+	
+	public static String FirstInvalidCharacter(String Label) {
+		if (Label.isEmpty())
+			return "";
+		for (int i = 0; i < Label.length(); i++) {
+			if (!Chars.contains(Label.toLowerCase().substring(i, i + 1))
+					&& !Numbers.contains(Label.substring(i, i + 1))) {
+				return Label.toLowerCase().substring(i, i + 1);
+			}
+		}
+		return "";
 	}
 	
 	public static boolean IsCorrectLabel(String Label, String HDLIdentifier) {
@@ -89,12 +117,12 @@ public class CorrectLabel {
 				return false;
 			}
 		}
-		if (HDLIdentifier.equals(Settings.VHDL)) {
+		if (HDLIdentifier.equals(HDLGeneratorFactory.VHDL)) {
 			if (VHDLKeywords.contains(Label.toLowerCase())) {
 				return false;
 			}
 		} else {
-			if (HDLIdentifier.equals(Settings.VERILOG)) {
+			if (HDLIdentifier.equals(HDLGeneratorFactory.VERILOG)) {
 				if (VerilogKeywords.contains(Label)) {
 					return false;
 				}

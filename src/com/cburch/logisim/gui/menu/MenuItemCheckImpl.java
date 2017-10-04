@@ -35,6 +35,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBoxMenuItem;
 
+
 class MenuItemCheckImpl extends JCheckBoxMenuItem implements MenuItem {
 
 	private static final long serialVersionUID = 1L;
@@ -69,4 +70,5 @@ class MenuItemCheckImpl extends JCheckBoxMenuItem implements MenuItem {
 		helper.setEnabled(value);
 		super.setEnabled(value && helper.hasListeners());
 	}
+
 }

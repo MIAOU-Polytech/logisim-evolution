@@ -392,7 +392,7 @@ public class ChronoFrame extends LFrame implements KeyListener, ActionListener,
 	 *            Error message
 	 */
 	public void errorMessage(String err) {
-		JOptionPane.showMessageDialog(null, err);
+		JOptionPane.showMessageDialog(mainPanel, err,"",JOptionPane.ERROR_MESSAGE);
 	}
 
 	/**

@@ -37,14 +37,13 @@ import com.bfh.logisim.designrulecheck.Netlist;
 import com.bfh.logisim.designrulecheck.NetlistComponent;
 import com.bfh.logisim.fpgagui.FPGAReport;
 import com.bfh.logisim.hdlgenerator.AbstractHDLGeneratorFactory;
-import com.bfh.logisim.settings.Settings;
 import com.cburch.logisim.data.AttributeSet;
 
 public class RomHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 
 	private String GetBin(int value, int nr_of_bits) {
 		StringBuffer Bits = new StringBuffer();
-		int mask = (1 << (nr_of_bits - 1));
+		long mask = (1L << (nr_of_bits - 1));
 		int count;
 		if (nr_of_bits == 1)
 			Bits.append("'");
@@ -66,7 +65,7 @@ public class RomHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 
 	private String GetBin(long value, int nr_of_bits) {
 		StringBuffer Bits = new StringBuffer();
-		long mask = (1 << (nr_of_bits - 1));
+		long mask = (1L << (nr_of_bits - 1));
 		int count;
 		if (nr_of_bits == 1)
 			Bits.append("'");
@@ -105,7 +104,7 @@ public class RomHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 		ArrayList<String> Contents = new ArrayList<String>();
 		long addr;
 		MemContents rom = attrs.getValue(Rom.CONTENTS_ATTR);
-		if (HDLType.equals(Settings.VHDL)) {
+		if (HDLType.equals(VHDL)) {
 			Contents.add("   MakeRom : PROCESS( Address )");
 			Contents.add("      BEGIN");
 			Contents.add("         CASE (Address) IS");

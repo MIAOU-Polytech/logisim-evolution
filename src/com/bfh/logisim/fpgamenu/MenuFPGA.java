@@ -84,4 +84,5 @@ public class MenuFPGA extends JMenu implements ActionListener {
 		BoardEditor.setText(Strings.get("BoardEditor"));
 		FPGACommander.setText(Strings.get("FPGA Commander"));
 	}
+
 }

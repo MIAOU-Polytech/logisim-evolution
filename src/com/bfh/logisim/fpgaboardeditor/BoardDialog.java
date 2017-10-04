@@ -32,6 +32,7 @@ package com.bfh.logisim.fpgaboardeditor;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
@@ -49,10 +50,14 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
 
 import com.bfh.logisim.fpgaboardeditor.FPGAIOInformationContainer.IOComponentTypes;
+import com.bfh.logisim.settings.VendorSoftware;
 import com.cburch.logisim.proj.Projects;
 
 public class BoardDialog implements ActionListener, ComponentListener {
@@ -69,6 +74,28 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		}
 	}
 
+	private class ZoomChange implements ChangeListener {
+		
+		private BoardPanel parent;
+
+		public ZoomChange(BoardPanel parent) {
+			this.parent = parent;
+		}
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			JSlider source = (JSlider)e.getSource();
+			if (!source.getValueIsAdjusting()) {
+				int value = (int) source.getValue();
+				if (value > MaxZoom) {
+					source.setValue(MaxZoom);
+					value = MaxZoom;
+				}
+				parent.SetScale((float)value/(float)100.0);
+			}
+		}
+		
+	}
+
 	private JFrame panel;
 	public LinkedList<BoardRectangle> defined_components = new LinkedList<BoardRectangle>();
 	public static final String pictureError = "/resources/logisim/error.png";
@@ -79,8 +106,8 @@ public class BoardDialog implements ActionListener, ComponentListener {
 	private JTextField BoardNameInput;
 	private JButton saveButton;
 	private JButton loadButton;
-	private JButton ScaleButton;
 	private BoardPanel picturepanel;
+	private ZoomSlider zoomslide;
 	public static final String XML_EXTENSION = ".xml";
 	public static final FileFilter XML_FILTER = new XMLFileFilter();
 	private String CancelStr = "cancel";
@@ -90,6 +117,7 @@ public class BoardDialog implements ActionListener, ComponentListener {
 	private int DefaultPullSelection = 0;
 
 	private int DefaultActivity = 0;
+	private int MaxZoom;
 
 	/* BIg TODO: Add all language strings */
 
@@ -102,13 +130,10 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		panel.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		GridBagLayout thisLayout = new GridBagLayout();
 		panel.setLayout(thisLayout);
-		// PointerInfo mouseloc = MouseInfo.getPointerInfo();
-		// Point mlocation = mouseloc.getLocation();
-		// panel.setLocation(mlocation.x,mlocation.y);
 
 		// Set an empty board picture
 		picturepanel = new BoardPanel(this);
-		panel.add(picturepanel);
+		picturepanel.addComponentListener(this);
 
 		JPanel ButtonPanel = new JPanel();
 		GridBagLayout ButtonLayout = new GridBagLayout();
@@ -120,7 +145,7 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		ButtonPanel.add(LocText, gbc);
 
-		BoardNameInput = new JTextField(32);
+		BoardNameInput = new JTextField(25);
 		BoardNameInput.setEnabled(false);
 		gbc.gridx = 2;
 		gbc.gridy = 0;
@@ -128,15 +153,22 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		ButtonPanel.add(BoardNameInput, gbc);
 
 		JButton cancelButton = new JButton("Cancel");
-		gbc.gridx = 3;
-		gbc.gridy = 0;
+		gbc.gridx = 1;
+		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		cancelButton.setActionCommand(CancelStr);
 		cancelButton.addActionListener(this);
 		ButtonPanel.add(cancelButton, gbc);
+		
+		zoomslide = new ZoomSlider();
+		zoomslide.addChangeListener(new ZoomChange(picturepanel));
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		ButtonPanel.add(zoomslide, gbc);
 
 		loadButton = new JButton("Load");
-		gbc.gridx = 4;
+		gbc.gridx = 3;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		loadButton.setActionCommand("load");
@@ -145,27 +177,22 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		ButtonPanel.add(loadButton, gbc);
 
 		saveButton = new JButton("Done and save");
-		gbc.gridx = 5;
-		gbc.gridy = 0;
+		gbc.gridx = 3;
+		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		saveButton.setActionCommand("save");
 		saveButton.addActionListener(this);
 		saveButton.setEnabled(false);
 		ButtonPanel.add(saveButton, gbc);
 		
-		ScaleButton = new JButton("Scale 1x");
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		ScaleButton.setActionCommand("scale");
-		ScaleButton.addActionListener(this);
-		ScaleButton.setEnabled(true);
-		ButtonPanel.add(ScaleButton, gbc);
-
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
 		panel.add(ButtonPanel, gbc);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		panel.add(picturepanel,gbc);
 
 		panel.pack();
 		/*
@@ -174,25 +201,23 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		 */
 		panel.setLocationRelativeTo(null);
 		panel.setVisible(true);
+		int ScreenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+		int ScreenHeight = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+		int ImageWidth = picturepanel.getWidth();
+		int ImageHeight = picturepanel.getHeight();
+		int ImageXBorder = panel.getWidth()-ImageWidth;
+		int ImageYBorder = panel.getHeight()-ImageHeight;
+		ScreenWidth -= ImageXBorder;
+		ScreenHeight -= (ImageYBorder+(ImageYBorder>>1));
+		int zoomX = (ScreenWidth*100)/ImageWidth;
+		int zoomY = (ScreenHeight*100)/ImageHeight;
+		MaxZoom = (zoomY > zoomX) ? zoomX : zoomY;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals(CancelStr)) {
 			this.clear();
-		} else if (e.getActionCommand().equals("scale")) {
-			String ScaleStr = ScaleButton.getText();
-			if (ScaleStr.equals("Scale 1x")) {
-				ScaleButton.setText("Scale 2x");
-				picturepanel.setScale(2);
-			} else if (ScaleStr.equals("Scale 2x")) {
-				ScaleButton.setText("Scale 3x");
-				picturepanel.setScale(3);
-			} else {
-				ScaleButton.setText("Scale 1x");
-				picturepanel.setScale(1);
-			}
-			panel.pack();
 		} else if (e.getActionCommand().equals("save")) {
 			panel.setVisible(false);
 			TheBoard.setBoardName(BoardNameInput.getText());
@@ -205,9 +230,8 @@ public class BoardDialog implements ActionListener, ComponentListener {
 			xmlwriter.PrintXml(filename);
 			this.clear();
 		} else if (e.getActionCommand().equals("load")) {
-			JFileChooser fc = new JFileChooser();
+			JFileChooser fc = new JFileChooser("Choose XML board description file to use");
 			fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-			fc.setDialogTitle("Choose XML board description file to use");
 			fc.setFileFilter(XML_FILTER);
 			fc.setAcceptAllFileFilterUsed(false);
 			int retval = fc.showOpenDialog(null);
@@ -258,6 +282,7 @@ public class BoardDialog implements ActionListener, ComponentListener {
 
 	@Override
 	public void componentResized(ComponentEvent e) {
+		panel.pack();
 	}
 
 	@Override
@@ -435,7 +460,7 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		FPGAPanel.add(VendorText, c);
 
-		JComboBox<String> VendorInput = new JComboBox<>(FPGAClass.Vendors);
+		JComboBox<String> VendorInput = new JComboBox<>(VendorSoftware.Vendors);
 		if (TheBoard.fpga.FpgaInfoPresent()) {
 			VendorInput.setSelectedIndex(TheBoard.fpga.getVendor());
 		} else VendorInput.setSelectedIndex(0);
@@ -724,7 +749,7 @@ public class BoardDialog implements ActionListener, ComponentListener {
 			overlap |= iter.next().Overlap(rect);
 		}
 		if (overlap) {
-			showDialogNotification("Error",
+			showDialogNotification(this,"Error",
 					"<html>Found Overlapping regions!<br>Cannot process!</html>");
 			return;
 		}
@@ -823,13 +848,13 @@ public class BoardDialog implements ActionListener, ComponentListener {
 
 	}
 
-	private void showDialogNotification(String type, String string) {
+	public static void showDialogNotification(Object parrent,String type, String string) {
 		final JFrame dialog = new JFrame(type);
 		JLabel pic = new JLabel();
 		if (type.equals("Warning")) {
-			pic.setIcon(new ImageIcon(getClass().getResource(pictureWarning)));
+			pic.setIcon(new ImageIcon(parrent.getClass().getResource(pictureWarning)));
 		} else {
-			pic.setIcon(new ImageIcon(getClass().getResource(pictureError)));
+			pic.setIcon(new ImageIcon(parrent.getClass().getResource(pictureError)));
 		}
 		GridBagLayout dialogLayout = new GridBagLayout();
 		dialog.setLayout(dialogLayout);
@@ -857,7 +882,8 @@ public class BoardDialog implements ActionListener, ComponentListener {
 		c.gridy = 1;
 		dialog.add(close, c);
 		dialog.pack();
-		dialog.setLocationRelativeTo(panel);
+		dialog.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width>>2,
+				           Toolkit.getDefaultToolkit().getScreenSize().height>>2);
 		dialog.setAlwaysOnTop(true);
 		dialog.setVisible(true);
 

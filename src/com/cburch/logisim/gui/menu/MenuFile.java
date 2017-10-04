@@ -121,7 +121,7 @@ class MenuFile extends Menu implements ActionListener {
 		quit.addActionListener(this);
 	}
 
-	public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		Project proj = menubar.getProject();
 		if (src == newi) {

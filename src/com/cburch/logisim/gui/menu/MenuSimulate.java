@@ -74,7 +74,7 @@ public class MenuSimulate extends Menu {
 			addActionListener(this);
 		}
 
-		@Override
+	    @Override
 		public void actionPerformed(ActionEvent e) {
 			menubar.fireStateChanged(currentSim, circuitState);
 		}
@@ -228,7 +228,7 @@ public class MenuSimulate extends Menu {
 		}
 	}
 
-	private class TickFrequencyChoice extends JRadioButtonMenuItem implements
+    private class TickFrequencyChoice extends JRadioButtonMenuItem implements
 			ActionListener {
 
 		private double freq;
@@ -349,7 +349,6 @@ public class MenuSimulate extends Menu {
 
 	public MenuSimulate(LogisimMenuBar menubar) {
 		this.menubar = menubar;
-
 		run = new MenuItemCheckImpl(this, LogisimMenuBar.SIMULATE_ENABLE);
 		step = new MenuItemImpl(this, LogisimMenuBar.SIMULATE_STEP);
 		simulate_vhdl_enable = new MenuItemCheckImpl(this,

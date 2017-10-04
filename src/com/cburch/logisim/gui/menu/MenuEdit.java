@@ -183,7 +183,7 @@ class MenuEdit extends Menu {
 		computeEnabled();
 	}
 
-	@Override
+    @Override
 	void computeEnabled() {
 		setEnabled(menubar.getProject() != null || cut.hasListeners()
 				|| copy.hasListeners() || paste.hasListeners()

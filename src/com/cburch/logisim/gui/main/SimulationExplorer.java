@@ -37,6 +37,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
 import com.cburch.draw.toolbar.Toolbar;
@@ -48,6 +49,15 @@ import com.cburch.logisim.proj.ProjectListener;
 
 class SimulationExplorer extends JPanel implements ProjectListener,
 		MouseListener {
+	
+	@SuppressWarnings("serial")
+	private class ScaledTree extends JTree {
+		public ScaledTree(TreeModel model) {
+			super(model);
+		}
+
+	}
+	
 	private static final long serialVersionUID = 1L;
 	private Project project;
 	private SimulationTreeModel model;
@@ -64,7 +74,7 @@ class SimulationExplorer extends JPanel implements ProjectListener,
 
 		model = new SimulationTreeModel(proj.getSimulator().getCircuitState());
 		model.setCurrentView(project.getCircuitState());
-		tree = new JTree(model);
+		tree = new ScaledTree(model);
 		tree.setCellRenderer(new SimulationTreeRenderer());
 		tree.addMouseListener(this);
 		tree.setToggleClickCount(3);

@@ -89,4 +89,5 @@ class SplitterDistributeItem extends JMenuItem implements ActionListener {
 			return Strings.getter("splitterDistributeDescending");
 		}
 	}
+	
 }

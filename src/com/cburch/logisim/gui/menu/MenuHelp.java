@@ -29,6 +29,8 @@
  *******************************************************************************/
 package com.cburch.logisim.gui.menu;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -75,7 +77,7 @@ class MenuHelp extends JMenu implements ActionListener {
 		}
 	}
 
-	public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if (src == guide) {
 			showHelp("guide");
@@ -117,6 +119,9 @@ class MenuHelp extends JMenu implements ActionListener {
 					helpFrame.setTitle(Strings.get("helpWindowTitle"));
 					helpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 					helpFrame.getContentPane().add(helpComponent);
+					helpFrame.setPreferredSize(new Dimension(
+							(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()>>1,
+							(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()>>1));
 					helpFrame.pack();
 				} else {
 					helpFrame.getContentPane().removeAll();

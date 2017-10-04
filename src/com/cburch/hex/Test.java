@@ -36,6 +36,7 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+
 public class Test {
 	private static class Model implements HexModel {
 		private ArrayList<HexModelListener> listeners = new ArrayList<HexModelListener>();
