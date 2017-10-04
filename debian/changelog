@@ -1,3 +1,79 @@
+logisim-evolution (2.14.2-polytech1-1) xenial; urgency=low
+
+  [ Alexandre Malki ]
+  * Revert "Reverting commit introducing scalling resolution."
+
+  [ Kluter Theo ]
+  * Almost all items have been scaled. Some underlying pop-up menus are still not done, also the help-system is not scalable yet. I created generic clases like ScaledLabel (=JLabel) that can be used in future gui-extensions.
+  * Now everything has been zoomed except for the help system and the messageboxes. for the messageboxes there might be some more effort involved as they use the static methods of JOptionPane. Currently the workspace has been moved from the logisim ini file to the apppreferences. The rest of the parameters of the FPGA-commander will follow.
+  * Now the help-system is also scalable, and the message boxes (JOptionPane.showMessageDialog) are scalable for the utilisation in logisim (not general). Still some JOptionPane work to be done.
+  * Help completely scaled, JOptionPane partially scaled and currently "broken" on linux platform
+  * Restricted scaling on board-editor and fpga-commander
+  * Fixed problem under linux with messagebox generation
+  * Added jar_all and run_all rules to ant that will build logisim with the combinational analyzer build in and the corresponding documentation
+  * Found a way more elegant way of doing the scaling. At this moment everything should scale as it should.
+  * Forgot two classes
+  * Still forgot 2 classes. Hope that I got the all now.
+
+  [ Torsten Maehne ]
+  * Fix compilation error due to unknown class com.cburch.logisim.gui.scale.ScaledOptionPane
+
+  [ Kluter Theo ]
+  * Call to revalidate the components, maybe this helps on MAC.
+  * Switched forced to java-cross-plaform Look and Feel
+
+  [ Torsten Maehne ]
+  * Add package task to ant build.xml file.
+  * Remove spurious whitespace and tabs.
+  * Add high-resolution icon files for the package task.
+  * Specify mime-type for .circ files.
+  * Add .desktop file for Logisim-evolution to launch it directly from desktop environment application menus on Linux.
+  * Fix failing launch of Logisim-evolution due to unpackaged JRE.
+  * Update the .gitignore file to ignore generated packages.
+  * Make DEB package to install command line tool logisim-evolution in /usr/bin/
+  * Make package task to pick up the correct icon file on Windows.
+
+  [ Kluter Theo ]
+  * Added LookAndFeel selection option in Preferences->Window. Now the users can select their prefered available look-and-feel for logisim.
+  * Added better label check in analyze window. Duplicated names in input/output tab are prevented, and also upper- and lowercase duplicates are prevented.
+  * Added 5-variable karnaux diagram
+  * Added the possibility for all memory elements to start-up in "unknown" state similar to the real-wold situation and simulations performed in modelsim (memory elements containing "U" as start-up value). Currently all memory element besides from the RAM-component have been converted. This option can be turned on in preferences->experimental.
+  * Fixed the problem that multiple instances of a RAM share the same content. There is one small issue: The attribute Content now contains the Initial content of all the RAM instatnces, hence editing this content will only take effect when reseting the simulation or adding a new subcircuit containing a RAM instance. To edit the contents of a praticular RAM instance one has to go down in the hierarchy, left-click on the RAM instance and select "Edit content"
+  * Disabled File and Project menu-entries in RAM-contents hex editor, solves isue #81
+  * The RAM component will now start-up with random values in case the option is set.
+  * Fixed small thinking error
+  * Added a Power-on Reset component (not yet supported on FPGA) to address issue #60
+  * Moved almost all FPGA-commander settings to AppPreferences.
+  * Major cleanup. The .LogisimFPGASettings.xml settings file has dissapeared almost. The external boards (Others in FPGA commander) still has to be addressed. Other than that all FPGA-Commander related setting have been move to AppPreferences, with: Software settings -> Preferences->Third Party software FPGA Commander specific settings -> Preferences->FPGA Commander Settings. The uninitialised memory components at start-up have been moved to Project->Options->Simulation.
+  * Due to the big changes, I switched to the 2.14.1 development version (the 2.14.2 would be a possible release candidate)
+  * Finalized the removal of the logisim ini file. Also, finally, added the possibility to add AND remove external (hence non-build-in) FPGA boards for the FPGA-commander. The interface is found in Window->Preferences->FPGA commander settings.
+  * Code cleanup: Removed Settings class as it is no longer needed.
+
+  [ BFH-ktt1 ]
+  * Fixed serious bug introduced by the new circuit-layout. As a change in a label of a pin would not result in a super-circuit lock, logisim would crash due to an "unpermitted" transaction.
+
+  [ Torsten Maehne ]
+  * Fix deletion of logisim-evolution command line tool.
+  * Update the logisim-evolution number used for packaging.
+  * Minor whitespace fix to DEB postrm script.
+
+  [ BFH-ktt1 ]
+  * Fixed rom-generation bug for 32-bits
+
+  [ Alexandre Malki ]
+  * TCL: TclRedsConsole: fix  the order of pin to lower impact on other design
+  * Introducing Logisim v2.14.1
+
+  [ BFH-ktt1 ]
+  * Fix for bug #126. It could happen that a label change caused an infinite loop. This dead-lock situation has been resolved.
+
+  [ Alexandre Malki ]
+  * changing version number
+
+  [ piernov ]
+
+ -- piernov <piernov@piernov.org>  Wed, 04 Oct 2017 09:22:44 +0200
+
 logisim-evolution (2.13.22-polytech3-1) xenial; urgency=low
 
   [ piernov ]
