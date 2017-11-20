@@ -38,6 +38,7 @@ import com.bfh.logisim.designrulecheck.NetlistComponent;
 import com.bfh.logisim.fpgagui.FPGAReport;
 import com.bfh.logisim.hdlgenerator.AbstractHDLGeneratorFactory;
 import com.cburch.logisim.data.AttributeSet;
+import com.cburch.logisim.instance.StdAttr;
 
 public class MultiplierHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 	final private static String NrOfBitsStr = "NrOfBits";
@@ -101,7 +102,7 @@ public class MultiplierHDLGeneratorFactory extends AbstractHDLGeneratorFactory {
 			NetlistComponent ComponentInfo, FPGAReport Reporter) {
 		SortedMap<String, Integer> ParameterMap = new TreeMap<String, Integer>();
 		int NrOfBits = ComponentInfo.GetComponent().getAttributeSet()
-				.getValue(Multiplier.WIDTH_ATTR).getWidth();
+				.getValue(StdAttr.WIDTH).getWidth();
 		ParameterMap.put(NrOfBitsStr, NrOfBits);
 		ParameterMap.put(CalcBitsStr, 2 * NrOfBits);
 		return ParameterMap;
